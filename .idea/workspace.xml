@@ -2,28 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37eacc8f-6734-4026-b156-226591bc9d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/constants/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/model/request/UserDetailsRequestModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/model/request/UserLoginRequestModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/AccountController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/UserAccount.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/UserAccountMockData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/UserAccountRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/entities/UserEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/dto/UserDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/AccountController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/UserAccount.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/UserAccountMockData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/UserAccountRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/BankSimulatorAPI.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/io/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/io/repositories/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/controller/UserController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,16 +95,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

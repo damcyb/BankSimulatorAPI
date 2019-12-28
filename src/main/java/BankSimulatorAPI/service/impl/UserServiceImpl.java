@@ -6,6 +6,7 @@ import BankSimulatorAPI.io.repositories.UserRepository;
 import BankSimulatorAPI.service.UserService;
 import BankSimulatorAPI.shared.Utils;
 import BankSimulatorAPI.shared.dto.UserDto;
+import javassist.NotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,27 @@ public class UserServiceImpl implements UserService {
 
         UserDto returnValue = new UserDto();
         BeanUtils.copyProperties(storedUserDetails, returnValue);
+        return returnValue;
+    }
+
+    @Override
+    public UserDto getUserById(String id) {
+        UserDto returnValue = new UserDto();
+        return returnValue;
+    }
+
+    @Override
+    public UserDto getUserByEmailAndPassword(UserDto user) {
+        UserEntity userEntity = userRepository.findByEmail(user.getEmail());
+        if(userEntity == null) {
+            throw new RuntimeException("User not found");
+        }
+
+        if(!userEntity.getEmail().equals(user.getEmail()) || !userEntity.getEncryptedPassword().equals(user.getPassword())) {
+            throw new RuntimeException("Bad input data, check written email and password");
+        }
+        UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(userEntity, returnValue);
         return returnValue;
     }
 }
