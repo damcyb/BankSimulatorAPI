@@ -5,7 +5,6 @@ import BankSimulatorAPI.shared.dto.UserDto;
 import BankSimulatorAPI.ui.model.request.UserDetailsRequestModel;
 import BankSimulatorAPI.ui.model.request.UserLoginRequestModel;
 import BankSimulatorAPI.ui.model.response.UserRest;
-import org.hibernate.annotations.NotFound;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -44,13 +43,18 @@ public class UserController {
         return returnValue;
     }
 
-    @PutMapping
-    public String updateUser() {
-        return "User updated";
+    @PutMapping(path = "/{userId}")
+    public UserRest updateUser(@RequestBody UserDetailsRequestModel userDetails, @PathVariable String userId) {
+        UserRest returnValue = new UserRest();
+        UserDto userDto = new UserDto();
+        BeanUtils.copyProperties(userDetails, userDto);
+        UserDto updatedUser = userService.updateUser(userDto, userId);
+        BeanUtils.copyProperties(updatedUser, returnValue);
+        return returnValue;
     }
 
-    @DeleteMapping
-    public String deleteUser() {
+    @DeleteMapping(path = "/{userId}")
+    public String deleteUser(@PathVariable String userId) {
         return "User deleted";
     }
 }

@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37eacc8f-6734-4026-b156-226591bc9d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/model/request/UserLoginRequestModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/io/repositories/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/io/repositories/UserRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/controller/UserController.class" afterDir="false" />

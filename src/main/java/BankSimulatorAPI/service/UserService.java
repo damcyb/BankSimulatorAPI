@@ -6,4 +6,5 @@ public interface UserService {
     UserDto createUser(UserDto userDto);
     UserDto getUserById(String id);
     UserDto getUserByEmailAndPassword(UserDto userDto);
+    UserDto updateUser(UserDto userDto, String userId);
 }
