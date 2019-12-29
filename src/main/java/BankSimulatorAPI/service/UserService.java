@@ -9,4 +9,5 @@ public interface UserService {
     UserDto updateUser(UserDto userDto, String userId);
     void deleteUser(String userId);
     UserDto depositMoney(double depositedMoney, String userId);
+    UserDto withdrawMoney(double withdrawedMoney, String userId);
 }

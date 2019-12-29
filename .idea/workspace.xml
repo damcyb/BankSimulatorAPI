@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="37eacc8f-6734-4026-b156-226591bc9d23" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/model/request/DepositMoneyRequestModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/model/request/WithdrawMoneyRequestModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/entities/UserEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/RequestOperationName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/RequestOperationName.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/model/response/UserRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/model/response/UserRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/io/entities/UserEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/io/entities/UserEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/shared/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/shared/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/shared/dto/UserDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/shared/dto/UserDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/model/response/UserRest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/model/response/UserRest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/controller/UserController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

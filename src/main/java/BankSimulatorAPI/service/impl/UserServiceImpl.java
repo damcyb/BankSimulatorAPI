@@ -1,12 +1,10 @@
 package BankSimulatorAPI.service.impl;
 
-import BankSimulatorAPI.constants.Constants;
 import BankSimulatorAPI.io.entities.UserEntity;
 import BankSimulatorAPI.io.repositories.UserRepository;
 import BankSimulatorAPI.service.UserService;
 import BankSimulatorAPI.shared.Utils;
 import BankSimulatorAPI.shared.dto.UserDto;
-import javassist.NotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -103,4 +101,18 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(storedUserDetails, returnValue);
         return returnValue;
     }
+
+    @Override
+    public UserDto withdrawMoney(double withdrawedMoney, String userId) {
+        UserEntity userEntity = userRepository.findByUserId(userId);
+        double updatedBalance = userEntity.getBalance();
+        updatedBalance -= withdrawedMoney;
+        userEntity.setBalance(updatedBalance);
+        UserEntity storedUserDetails = userRepository.save(userEntity);
+        UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(storedUserDetails, returnValue);
+        return returnValue;
+    }
+
+
 }
