@@ -10,4 +10,5 @@ import java.io.Serializable;
 public interface UserRepository extends CrudRepository<UserEntity, Long> {
     UserEntity findByEmail(String email);
     UserEntity findByUserId(String id);
+    UserEntity findByAccountNumber(String accountNumber);
 }

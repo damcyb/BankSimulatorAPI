@@ -103,16 +103,41 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto withdrawMoney(double withdrawedMoney, String userId) {
+    public UserDto withdrawMoney(double withdrawMoney, String userId) {
         UserEntity userEntity = userRepository.findByUserId(userId);
-        double updatedBalance = userEntity.getBalance();
-        updatedBalance -= withdrawedMoney;
-        userEntity.setBalance(updatedBalance);
+        double balance = userEntity.getBalance();
+        if(balance < withdrawMoney) {
+            throw new RuntimeException("Not enough money to withdraw");
+        }
+        balance -= withdrawMoney;
+        userEntity.setBalance(balance);
         UserEntity storedUserDetails = userRepository.save(userEntity);
         UserDto returnValue = new UserDto();
         BeanUtils.copyProperties(storedUserDetails, returnValue);
         return returnValue;
     }
 
+    @Override
+    public UserDto transferMoney(double transferredMoney, String userId, String accountNumber) {
+        UserEntity sender = userRepository.findByUserId(userId);
+        UserEntity receiver = userRepository.findByAccountNumber(accountNumber);
+        if(receiver == null) {
+            throw new RuntimeException("Receiver not found");
+        }
+        if(sender.getBalance() < transferredMoney) {
+            throw new RuntimeException("Not enough money to transfer");
+        }
+        double senderBalance = sender.getBalance();
+        double receiverBalance = receiver.getBalance();
+        senderBalance -= transferredMoney;
+        sender.setBalance(senderBalance);
+        receiverBalance += transferredMoney;
+        receiver.setBalance(receiverBalance);
+        UserEntity storedSenderDetails = userRepository.save(sender);
+        UserEntity storedReceiverDetails = userRepository.save(receiver);
 
+        UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(storedSenderDetails, returnValue);
+        return returnValue;
+    }
 }

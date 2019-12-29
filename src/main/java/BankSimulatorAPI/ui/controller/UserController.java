@@ -2,10 +2,7 @@ package BankSimulatorAPI.ui.controller;
 
 import BankSimulatorAPI.service.UserService;
 import BankSimulatorAPI.shared.dto.UserDto;
-import BankSimulatorAPI.ui.model.request.DepositMoneyRequestModel;
-import BankSimulatorAPI.ui.model.request.UserDetailsRequestModel;
-import BankSimulatorAPI.ui.model.request.UserLoginRequestModel;
-import BankSimulatorAPI.ui.model.request.WithdrawMoneyRequestModel;
+import BankSimulatorAPI.ui.model.request.*;
 import BankSimulatorAPI.ui.model.response.OperationStatusModel;
 import BankSimulatorAPI.ui.model.response.RequestOperationStatus;
 import BankSimulatorAPI.ui.model.response.UserRest;
@@ -80,6 +77,16 @@ public class UserController {
         UserRest returnValue = new UserRest();
         double withdrawMoney = userDetails.getWithdrawMoney();
         UserDto updatedUser = userService.withdrawMoney(withdrawMoney, userId);
+        BeanUtils.copyProperties(updatedUser, returnValue);
+        return returnValue;
+    }
+
+    @PutMapping(path = "/transfer/{userId}")
+    public UserRest transferMoney(@RequestBody TransferMoneyRequestModel transferDetails, @PathVariable String userId) {
+        UserRest returnValue = new UserRest();
+        double transferredMoney = transferDetails.getTransferredMoney();
+        String accountNumber = transferDetails.getReceiverAccount();
+        UserDto updatedUser = userService.transferMoney(transferredMoney, userId, accountNumber);
         BeanUtils.copyProperties(updatedUser, returnValue);
         return returnValue;
     }
