@@ -7,4 +7,5 @@ public interface UserService {
     UserDto getUserById(String id);
     UserDto getUserByEmailAndPassword(UserDto userDto);
     UserDto updateUser(UserDto userDto, String userId);
+    void deleteUser(String userId);
 }

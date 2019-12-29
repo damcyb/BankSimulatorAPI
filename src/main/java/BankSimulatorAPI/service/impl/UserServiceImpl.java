@@ -77,4 +77,13 @@ public class UserServiceImpl implements UserService {
         BeanUtils.copyProperties(storedUserDetails, returnValue);
         return returnValue;
     }
+
+    @Override
+    public void deleteUser(String userId) {
+        UserEntity userEntity = userRepository.findByUserId(userId);
+        if(userEntity == null) {
+            throw new RuntimeException("Record not found");
+        }
+        userRepository.delete(userEntity);
+    }
 }

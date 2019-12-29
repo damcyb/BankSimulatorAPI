@@ -4,6 +4,8 @@ import BankSimulatorAPI.service.UserService;
 import BankSimulatorAPI.shared.dto.UserDto;
 import BankSimulatorAPI.ui.model.request.UserDetailsRequestModel;
 import BankSimulatorAPI.ui.model.request.UserLoginRequestModel;
+import BankSimulatorAPI.ui.model.response.OperationStatusModel;
+import BankSimulatorAPI.ui.model.response.RequestOperationStatus;
 import BankSimulatorAPI.ui.model.response.UserRest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +56,11 @@ public class UserController {
     }
 
     @DeleteMapping(path = "/{userId}")
-    public String deleteUser(@PathVariable String userId) {
-        return "User deleted";
+    public OperationStatusModel deleteUser(@PathVariable String userId) {
+        OperationStatusModel returnValue = new OperationStatusModel();
+        returnValue.setOperationName(RequestOperationName.DELETE.name());
+        userService.deleteUser(userId);
+        returnValue.setOperationResult(RequestOperationStatus.SUCCESS.name());
+        return returnValue;
     }
 }
