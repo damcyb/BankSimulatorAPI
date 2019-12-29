@@ -15,6 +15,7 @@ public class UserDto implements Serializable {
     private String emailVerificationToken;
     private Boolean emailVerificationStatus = false;
     private double balance = 1000;
+    private String accountNumber;
 
     public long getId() {
         return id;
@@ -94,5 +95,13 @@ public class UserDto implements Serializable {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }

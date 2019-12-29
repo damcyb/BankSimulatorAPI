@@ -34,6 +34,8 @@ public class UserServiceImpl implements UserService {
         userEntity.setUserId(publicUserId);
         String encryptedPassword = user.getPassword();
         userEntity.setEncryptedPassword(encryptedPassword);
+        String accountNumber = utils.generatePublicUserAccountNumber();
+        userEntity.setAccountNumber(accountNumber);
 
         UserEntity storedUserDetails = userRepository.save(userEntity);
 
@@ -84,6 +86,21 @@ public class UserServiceImpl implements UserService {
         if(userEntity == null) {
             throw new RuntimeException("Record not found");
         }
+        if(userEntity.getBalance() != 0) {
+            throw new RuntimeException("Cannot delete account balance does not equal 0");
+        }
         userRepository.delete(userEntity);
+    }
+
+    @Override
+    public UserDto depositMoney(double depositedMoney, String userId) {
+        UserEntity userEntity = userRepository.findByUserId(userId);
+        double updatedBalance = userEntity.getBalance();
+        updatedBalance += depositedMoney;
+        userEntity.setBalance(updatedBalance);
+        UserEntity storedUserDetails = userRepository.save(userEntity);
+        UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(storedUserDetails, returnValue);
+        return returnValue;
     }
 }

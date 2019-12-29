@@ -2,6 +2,7 @@ package BankSimulatorAPI.ui.controller;
 
 import BankSimulatorAPI.service.UserService;
 import BankSimulatorAPI.shared.dto.UserDto;
+import BankSimulatorAPI.ui.model.request.DepositMoneyRequestModel;
 import BankSimulatorAPI.ui.model.request.UserDetailsRequestModel;
 import BankSimulatorAPI.ui.model.request.UserLoginRequestModel;
 import BankSimulatorAPI.ui.model.response.OperationStatusModel;
@@ -63,4 +64,14 @@ public class UserController {
         returnValue.setOperationResult(RequestOperationStatus.SUCCESS.name());
         return returnValue;
     }
+
+    @PutMapping(path = "/deposit/{userId}")
+    public UserRest depositMoney(@RequestBody DepositMoneyRequestModel userDetails, @PathVariable String userId) {
+        UserRest returnValue = new UserRest();
+        double depositedMoney = userDetails.getDepositedMoney();
+        UserDto updatedUser = userService.depositMoney(depositedMoney, userId);
+        BeanUtils.copyProperties(updatedUser, returnValue);
+        return returnValue;
+    }
+
 }

@@ -35,6 +35,9 @@ public class UserEntity implements Serializable {
     @Column(name = "balance", length = 100)
     private double balance = 1000;
 
+    @Column(name = "accountNumber", nullable = false, unique = true, length = 26)
+    private String accountNumber;
+
     public long getId() {
         return id;
     }
@@ -105,5 +108,13 @@ public class UserEntity implements Serializable {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }

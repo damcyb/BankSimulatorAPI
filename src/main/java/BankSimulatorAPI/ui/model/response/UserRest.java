@@ -7,6 +7,7 @@ public class UserRest {
     private String lastName;
     private String email;
     private double balance;
+    private String accountNumber;
 
     public String getUserId() {
         return userId;
@@ -46,5 +47,13 @@ public class UserRest {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }

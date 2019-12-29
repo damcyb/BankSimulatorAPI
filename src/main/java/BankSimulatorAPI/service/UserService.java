@@ -8,4 +8,5 @@ public interface UserService {
     UserDto getUserByEmailAndPassword(UserDto userDto);
     UserDto updateUser(UserDto userDto, String userId);
     void deleteUser(String userId);
+    UserDto depositMoney(double depositedMoney, String userId);
 }
