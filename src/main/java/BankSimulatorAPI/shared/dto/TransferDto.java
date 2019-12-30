@@ -10,6 +10,8 @@ public class TransferDto implements Serializable {
     private String date;
     private double transferredMoney;
     private String receiverAccountNumber;
+    private String receiverFirstName;
+    private String receiverLastName;
     private double balanceBeforeOperation;
     private double balanceAfterOperation;
 
@@ -67,6 +69,22 @@ public class TransferDto implements Serializable {
 
     public void setBalanceAfterOperation(double balanceAfterOperation) {
         this.balanceAfterOperation = balanceAfterOperation;
+    }
+
+    public String getReceiverFirstName() {
+        return receiverFirstName;
+    }
+
+    public void setReceiverFirstName(String receiverFirstName) {
+        this.receiverFirstName = receiverFirstName;
+    }
+
+    public String getReceiverLastName() {
+        return receiverLastName;
+    }
+
+    public void setReceiverLastName(String receiverLastName) {
+        this.receiverLastName = receiverLastName;
     }
 }
 

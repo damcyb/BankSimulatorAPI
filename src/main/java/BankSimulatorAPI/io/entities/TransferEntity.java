@@ -33,6 +33,12 @@ public class TransferEntity implements Serializable {
     @Column(name = "balanceAfterOperation")
     private double balanceAfterOperation;
 
+    @Column(name = "receiverFirstName", nullable = false, length = 50)
+    private String receiverFirstName;
+
+    @Column(name = "receiverLastName", nullable = false, length = 50)
+    private String receiverLastName;
+
     public long getId() {
         return id;
     }
@@ -87,5 +93,21 @@ public class TransferEntity implements Serializable {
 
     public void setBalanceAfterOperation(double balanceAfterOperation) {
         this.balanceAfterOperation = balanceAfterOperation;
+    }
+
+    public String getReceiverFirstName() {
+        return receiverFirstName;
+    }
+
+    public void setReceiverFirstName(String receiverFirstName) {
+        this.receiverFirstName = receiverFirstName;
+    }
+
+    public String getReceiverLastName() {
+        return receiverLastName;
+    }
+
+    public void setReceiverLastName(String receiverLastName) {
+        this.receiverLastName = receiverLastName;
     }
 }

@@ -7,10 +7,14 @@ import BankSimulatorAPI.shared.dto.UserDto;
 import BankSimulatorAPI.ui.model.request.*;
 import BankSimulatorAPI.ui.model.response.OperationStatusModel;
 import BankSimulatorAPI.ui.model.response.RequestOperationStatus;
+import BankSimulatorAPI.ui.model.response.TransferRest;
 import BankSimulatorAPI.ui.model.response.UserRest;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("users")
@@ -22,13 +26,18 @@ public class UserController {
     @Autowired
     TransferService transferService;
 
-//    @GetMapping(value = "{id}")
-//    public UserRest getUser(@PathVariable String id) {
-//        UserRest returnValue = new UserRest();
-//        UserDto userDto = userService.getUserById(id);
-//        BeanUtils.copyProperties(userDto, returnValue);
-//        return returnValue;
-//    }
+    @GetMapping("/transfer/{userId}")
+    public List<TransferRest> getListOfTransfers(@PathVariable String userId) {
+        List<TransferRest> returnValue = new ArrayList<>();
+        List<TransferDto> listOfTransferDto = transferService.getListOfTransfers(userId);
+        for (TransferDto transfer: listOfTransferDto) {
+            TransferRest transferRest = new TransferRest();
+            BeanUtils.copyProperties(transfer, transferRest);
+            returnValue.add(transferRest);
+        }
+        return returnValue;
+    }
+
     @GetMapping
     public UserRest loginUser(@RequestBody UserLoginRequestModel userDetails) {
         UserRest returnValue = new UserRest();
@@ -49,6 +58,15 @@ public class UserController {
         return returnValue;
     }
 
+    @DeleteMapping(path = "/{userId}")
+    public OperationStatusModel deleteUser(@PathVariable String userId) {
+        OperationStatusModel returnValue = new OperationStatusModel();
+        returnValue.setOperationName(RequestOperationName.DELETE.name());
+        userService.deleteUser(userId);
+        returnValue.setOperationResult(RequestOperationStatus.SUCCESS.name());
+        return returnValue;
+    }
+
     @PutMapping(path = "/{userId}")
     public UserRest updateUser(@RequestBody UserDetailsRequestModel userDetails, @PathVariable String userId) {
         UserRest returnValue = new UserRest();
@@ -56,15 +74,6 @@ public class UserController {
         BeanUtils.copyProperties(userDetails, userDto);
         UserDto updatedUser = userService.updateUser(userDto, userId);
         BeanUtils.copyProperties(updatedUser, returnValue);
-        return returnValue;
-    }
-
-    @DeleteMapping(path = "/{userId}")
-    public OperationStatusModel deleteUser(@PathVariable String userId) {
-        OperationStatusModel returnValue = new OperationStatusModel();
-        returnValue.setOperationName(RequestOperationName.DELETE.name());
-        userService.deleteUser(userId);
-        returnValue.setOperationResult(RequestOperationStatus.SUCCESS.name());
         return returnValue;
     }
 
@@ -91,14 +100,17 @@ public class UserController {
         UserRest returnValue = new UserRest();
         double transferredMoney = transferDetails.getTransferredMoney();
         String accountNumber = transferDetails.getReceiverAccount();
+        String receiverFirstName = transferDetails.getReceiverFirstName();
+        String receiverLastName = transferDetails.getReceiverLastName();
         UserDto updatedUser = userService.transferMoney(transferredMoney, userId, accountNumber);
 
         TransferDto transferDto = new TransferDto();
         BeanUtils.copyProperties(updatedUser, transferDto);
         double balance = updatedUser.getBalance();
-        transferService.createTransfer(transferDto, accountNumber, balance, transferredMoney);
+        transferService.createTransfer(transferDto, accountNumber, balance, transferredMoney, receiverFirstName, receiverLastName);
 
         BeanUtils.copyProperties(updatedUser, returnValue);
         return returnValue;
     }
+
 }
