@@ -134,7 +134,7 @@ public class UserServiceImpl implements UserService {
         receiverBalance += transferredMoney;
         receiver.setBalance(receiverBalance);
         UserEntity storedSenderDetails = userRepository.save(sender);
-        UserEntity storedReceiverDetails = userRepository.save(receiver);
+        userRepository.save(receiver);
 
         UserDto returnValue = new UserDto();
         BeanUtils.copyProperties(storedSenderDetails, returnValue);

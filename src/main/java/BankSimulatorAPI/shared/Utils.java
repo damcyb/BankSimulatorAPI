@@ -3,6 +3,8 @@ package BankSimulatorAPI.shared;
 import org.springframework.stereotype.Component;
 
 import java.security.SecureRandom;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Random;
 
 @Component
@@ -39,6 +41,16 @@ public class Utils {
             }
         }
         return new String(accountNumber);
+    }
+
+    public String generatePublicDateAsString() {
+        return generateDateAsString();
+    }
+
+    private String generateDateAsString() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        return formatter.format(date);
     }
 
 }

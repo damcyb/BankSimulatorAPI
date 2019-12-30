@@ -1,6 +1,8 @@
 package BankSimulatorAPI.ui.controller;
 
+import BankSimulatorAPI.service.TransferService;
 import BankSimulatorAPI.service.UserService;
+import BankSimulatorAPI.shared.dto.TransferDto;
 import BankSimulatorAPI.shared.dto.UserDto;
 import BankSimulatorAPI.ui.model.request.*;
 import BankSimulatorAPI.ui.model.response.OperationStatusModel;
@@ -16,6 +18,9 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    TransferService transferService;
 
 //    @GetMapping(value = "{id}")
 //    public UserRest getUser(@PathVariable String id) {
@@ -87,6 +92,12 @@ public class UserController {
         double transferredMoney = transferDetails.getTransferredMoney();
         String accountNumber = transferDetails.getReceiverAccount();
         UserDto updatedUser = userService.transferMoney(transferredMoney, userId, accountNumber);
+
+        TransferDto transferDto = new TransferDto();
+        BeanUtils.copyProperties(updatedUser, transferDto);
+        double balance = updatedUser.getBalance();
+        transferService.createTransfer(transferDto, accountNumber, balance, transferredMoney);
+
         BeanUtils.copyProperties(updatedUser, returnValue);
         return returnValue;
     }

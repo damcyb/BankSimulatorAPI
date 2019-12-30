@@ -1,16 +1,36 @@
-package BankSimulatorAPI.shared.dto;
+package BankSimulatorAPI.io.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 
-public class TransferDto implements Serializable {
+@Entity(name = "transfers")
+public class TransferEntity implements Serializable {
 
-    private static final long serialVersionUID = 5904391901508630223L;
+    private static final long serialVersionUID = 8953144341380334959L;
+
+    @Id
+    @GeneratedValue
     private long id;
+
+    @Column(name = "userId", nullable = false)
     private String userId;
+
+    @Column(name = "date", nullable = false)
     private String date;
+
+    @Column(name = "transferredMoney", nullable = false)
     private double transferredMoney;
+
+    @Column(name = "receiverAccountNumber", nullable = false)
     private String receiverAccountNumber;
+
+    @Column(name = "balanceBeforeOperation")
     private double balanceBeforeOperation;
+
+    @Column(name = "balanceAfterOperation")
     private double balanceAfterOperation;
 
     public long getId() {
@@ -69,4 +89,3 @@ public class TransferDto implements Serializable {
         this.balanceAfterOperation = balanceAfterOperation;
     }
 }
-
