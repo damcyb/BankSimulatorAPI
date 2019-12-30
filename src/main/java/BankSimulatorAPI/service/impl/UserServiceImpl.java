@@ -25,6 +25,11 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("User already exists");
         }
 
+        if(user.getFirstName().equals("") || user.getLastName().equals("") ||
+                user.getEmail().equals("") || user.getPassword().equals("")) {
+            throw new RuntimeException("Did not complete all necessary fields");
+        }
+
         UserEntity userEntity = new UserEntity();
         BeanUtils.copyProperties(user, userEntity);
 

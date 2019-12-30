@@ -48,16 +48,12 @@ public class TransferServiceImpl implements TransferService {
     @Override
     public List<TransferDto> getListOfTransfers(String userId) {
         List<TransferDto> returnValue = new ArrayList<>();
-        //Page<UserEntity> usersPage = userRepository.findAll(pageableRequest);
-
         List<TransferEntity> transfers = (List<TransferEntity>) transferRepository.findAll();
-        //List<TransferEntity> transfers = transfersPage.getContent();
         for (TransferEntity transfer: transfers) {
             if(transfer.getUserId().equals(userId)) {
                 TransferDto transferDto = new TransferDto();
                 BeanUtils.copyProperties(transfer, transferDto);
                 returnValue.add(transferDto);
-                //BeanUtils.copyProperties(transfer, returnValue.get(returnValue.size() - 1));
             }
         }
         return returnValue;
