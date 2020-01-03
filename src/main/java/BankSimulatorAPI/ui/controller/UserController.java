@@ -33,12 +33,27 @@ public class UserController {
         for (TransferDto transfer: listOfTransferDto) {
             TransferRest transferRest = new TransferRest();
             BeanUtils.copyProperties(transfer, transferRest);
+            if(transfer.getTransferDirection().equals("SENT")) {
+                transferRest.setFirstName(transfer.getReceiverFirstName());
+                transferRest.setLastName(transfer.getReceiverLastName());
+                transferRest.setAccountNumber(transfer.getReceiverAccountNumber());
+            }
+            if(transfer.getTransferDirection().equals("RECEIVED")) {
+                transferRest.setFirstName(transfer.getSenderFirstName());
+                transferRest.setLastName(transfer.getSenderLastName());
+                transferRest.setAccountNumber(transfer.getSenderAccountNumber());
+            }
+            if(transfer.getTransferDirection().equals("DEPOSIT") || transfer.getTransferDirection().equals("WITHDRAW")) {
+                transferRest.setFirstName(transfer.getReceiverFirstName());
+                transferRest.setLastName(transfer.getReceiverLastName());
+                transferRest.setAccountNumber(transfer.getReceiverAccountNumber());
+            }
             returnValue.add(transferRest);
         }
         return returnValue;
     }
 
-    @GetMapping
+    @PostMapping(path = "/login")
     public UserRest loginUser(@RequestBody UserLoginRequestModel userDetails) {
         UserRest returnValue = new UserRest();
         UserDto userDto = new UserDto();
@@ -79,24 +94,59 @@ public class UserController {
 
     @PutMapping(path = "/deposit/{userId}")
     public UserRest depositMoney(@RequestBody DepositMoneyRequestModel userDetails, @PathVariable String userId) {
+        if(userDetails.getDepositedMoney() <= 0) {
+            throw new RuntimeException("Wrong amount of deposited money");
+        }
         UserRest returnValue = new UserRest();
         double depositedMoney = userDetails.getDepositedMoney();
         UserDto updatedUser = userService.depositMoney(depositedMoney, userId);
+
+        TransferDto transferDto = new TransferDto();
+        BeanUtils.copyProperties(updatedUser, transferDto);
+        transferDto.setSenderAccountNumber(updatedUser.getAccountNumber());
+        transferDto.setSenderFirstName(updatedUser.getFirstName());
+        transferDto.setSenderLastName(updatedUser.getLastName());
+        double balance = updatedUser.getBalance();
+        String accountNumber = updatedUser.getAccountNumber();
+        double transferredMoney = userDetails.getDepositedMoney();
+        String receiverFirstName = updatedUser.getFirstName();
+        String receiverLastName = updatedUser.getLastName();
+        transferService.createTransfer(transferDto, accountNumber, balance, transferredMoney, receiverFirstName, receiverLastName);
+
         BeanUtils.copyProperties(updatedUser, returnValue);
         return returnValue;
     }
 
     @PutMapping(path = "/withdraw/{userId}")
     public UserRest withdrawMoney(@RequestBody WithdrawMoneyRequestModel userDetails, @PathVariable String userId) {
+        if(userDetails.getWithdrawMoney() <= 0) {
+            throw new RuntimeException("Wrong amount of withdraw money");
+        }
         UserRest returnValue = new UserRest();
         double withdrawMoney = userDetails.getWithdrawMoney();
         UserDto updatedUser = userService.withdrawMoney(withdrawMoney, userId);
+
+        TransferDto transferDto = new TransferDto();
+        BeanUtils.copyProperties(updatedUser, transferDto);
+        transferDto.setSenderAccountNumber(updatedUser.getAccountNumber());
+        transferDto.setSenderFirstName(updatedUser.getFirstName());
+        transferDto.setSenderLastName(updatedUser.getLastName());
+        double balance = updatedUser.getBalance();
+        String accountNumber = updatedUser.getAccountNumber();
+        double transferredMoney = userDetails.getWithdrawMoney();
+        String receiverFirstName = updatedUser.getFirstName();
+        String receiverLastName = updatedUser.getLastName();
+        transferService.createTransfer(transferDto, accountNumber, balance, -transferredMoney, receiverFirstName, receiverLastName);
+
         BeanUtils.copyProperties(updatedUser, returnValue);
         return returnValue;
     }
 
     @PutMapping(path = "/transfer/{userId}")
     public UserRest transferMoney(@RequestBody TransferMoneyRequestModel transferDetails, @PathVariable String userId) {
+        if(transferDetails.getTransferredMoney() <= 0) {
+            throw new RuntimeException("Wrong amount of transferred money");
+        }
         UserRest returnValue = new UserRest();
         double transferredMoney = transferDetails.getTransferredMoney();
         String accountNumber = transferDetails.getReceiverAccount();
@@ -106,11 +156,13 @@ public class UserController {
 
         TransferDto transferDto = new TransferDto();
         BeanUtils.copyProperties(updatedUser, transferDto);
+        transferDto.setSenderAccountNumber(updatedUser.getAccountNumber());
+        transferDto.setSenderFirstName(updatedUser.getFirstName());
+        transferDto.setSenderLastName(updatedUser.getLastName());
         double balance = updatedUser.getBalance();
-        transferService.createTransfer(transferDto, accountNumber, balance, transferredMoney, receiverFirstName, receiverLastName);
+        transferService.createTransfer(transferDto, accountNumber, balance, -transferredMoney, receiverFirstName, receiverLastName);
 
         BeanUtils.copyProperties(updatedUser, returnValue);
         return returnValue;
     }
-
 }

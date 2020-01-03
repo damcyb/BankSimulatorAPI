@@ -1,11 +1,12 @@
 package BankSimulatorAPI.ui.model.response;
 
 public class TransferRest {
-    String date;
-    String receiverFirstName;
-    String receiverLastName;
-    String receiverAccountNumber;
-    double transferredMoney;
+    private String date;
+    private String firstName;
+    private String lastName;
+    private String accountNumber;
+    private double transferredMoney;
+    private String transferDirection;
 
     public String getDate() {
         return date;
@@ -15,28 +16,28 @@ public class TransferRest {
         this.date = date;
     }
 
-    public String getReceiverFirstName() {
-        return receiverFirstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setReceiverFirstName(String receiverFirstName) {
-        this.receiverFirstName = receiverFirstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getReceiverLastName() {
-        return receiverLastName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setReceiverLastName(String receiverLastName) {
-        this.receiverLastName = receiverLastName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getReceiverAccountNumber() {
-        return receiverAccountNumber;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setReceiverAccountNumber(String receiverAccountNumber) {
-        this.receiverAccountNumber = receiverAccountNumber;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public double getTransferredMoney() {
@@ -45,5 +46,13 @@ public class TransferRest {
 
     public void setTransferredMoney(double transferredMoney) {
         this.transferredMoney = transferredMoney;
+    }
+
+    public String getTransferDirection() {
+        return transferDirection;
+    }
+
+    public void setTransferDirection(String transferDirection) {
+        this.transferDirection = transferDirection;
     }
 }

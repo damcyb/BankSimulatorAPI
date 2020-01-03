@@ -39,6 +39,15 @@ public class TransferEntity implements Serializable {
     @Column(name = "receiverLastName", nullable = false, length = 50)
     private String receiverLastName;
 
+    @Column(name = "senderFirstName", nullable = false, length = 50)
+    private String senderFirstName;
+
+    @Column(name = "senderLastName", nullable = false, length = 50)
+    private String senderLastName;
+
+    @Column(name = "senderAccountNumber", nullable = false)
+    private String senderAccountNumber;
+
     public long getId() {
         return id;
     }
@@ -109,5 +118,29 @@ public class TransferEntity implements Serializable {
 
     public void setReceiverLastName(String receiverLastName) {
         this.receiverLastName = receiverLastName;
+    }
+
+    public String getSenderFirstName() {
+        return senderFirstName;
+    }
+
+    public void setSenderFirstName(String senderFirstName) {
+        this.senderFirstName = senderFirstName;
+    }
+
+    public String getSenderLastName() {
+        return senderLastName;
+    }
+
+    public void setSenderLastName(String senderLastName) {
+        this.senderLastName = senderLastName;
+    }
+
+    public String getSenderAccountNumber() {
+        return senderAccountNumber;
+    }
+
+    public void setSenderAccountNumber(String senderAccountNumber) {
+        this.senderAccountNumber = senderAccountNumber;
     }
 }

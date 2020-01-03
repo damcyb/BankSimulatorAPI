@@ -12,8 +12,12 @@ public class TransferDto implements Serializable {
     private String receiverAccountNumber;
     private String receiverFirstName;
     private String receiverLastName;
+    private String senderFirstName;
+    private String senderLastName;
+    private String senderAccountNumber;
     private double balanceBeforeOperation;
     private double balanceAfterOperation;
+    private String transferDirection;
 
     public long getId() {
         return id;
@@ -85,6 +89,38 @@ public class TransferDto implements Serializable {
 
     public void setReceiverLastName(String receiverLastName) {
         this.receiverLastName = receiverLastName;
+    }
+
+    public String getSenderFirstName() {
+        return senderFirstName;
+    }
+
+    public void setSenderFirstName(String senderFirstName) {
+        this.senderFirstName = senderFirstName;
+    }
+
+    public String getSenderLastName() {
+        return senderLastName;
+    }
+
+    public void setSenderLastName(String senderLastName) {
+        this.senderLastName = senderLastName;
+    }
+
+    public String getSenderAccountNumber() {
+        return senderAccountNumber;
+    }
+
+    public void setSenderAccountNumber(String senderAccountNumber) {
+        this.senderAccountNumber = senderAccountNumber;
+    }
+
+    public String getTransferDirection() {
+        return transferDirection;
+    }
+
+    public void setTransferDirection(String transferDirection) {
+        this.transferDirection = transferDirection;
     }
 }
 
