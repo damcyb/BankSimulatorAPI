@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="37eacc8f-6734-4026-b156-226591bc9d23" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/entities/TransferEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/io/entities/TransferEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/TransferServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/TransferServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/dto/TransferDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/shared/dto/TransferDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/model/response/TransferRest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/model/response/TransferRest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/io/entities/TransferEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/io/entities/TransferEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/TransferServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/TransferServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/shared/dto/TransferDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/shared/dto/TransferDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/service/impl/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/BankSimulatorAPI/ui/controller/UserController.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,24 +96,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/BankSimulatorAPI/ui/controller/UserController.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="24" />
+          <url>file://$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/TransferServiceImpl.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/TransferServiceImpl.java</url>
-          <line>78</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/TransferServiceImpl.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="29" />
+          <url>file://$PROJECT_DIR$/src/main/java/BankSimulatorAPI/service/impl/UserServiceImpl.java</url>
+          <line>146</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

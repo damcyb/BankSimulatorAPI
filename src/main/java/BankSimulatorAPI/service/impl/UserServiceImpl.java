@@ -9,6 +9,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.RuntimeErrorException;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -48,8 +50,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUserById(String id) {
+    public UserDto getUserById(String userId) {
+        UserEntity userEntity = userRepository.findByUserId(userId);
+        if(userEntity == null) {
+            throw new RuntimeException("User not found");
+        }
         UserDto returnValue = new UserDto();
+        BeanUtils.copyProperties(userEntity, returnValue);
         return returnValue;
     }
 
@@ -71,6 +78,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto updateUser(UserDto user, String userId) {
         UserEntity userEntity = userRepository.findByUserId(userId);
+        UserEntity userEntityByEmail = userRepository.findByEmail(user.getEmail());
+        if(userEntityByEmail != null) {
+            throw new RuntimeException("User with passed email already exists");
+        }
         UserDto userDto = new UserDto();
         BeanUtils.copyProperties(user, userDto);
         userEntity.setEmail(userDto.getEmail());
@@ -97,6 +108,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto depositMoney(double depositedMoney, String userId) {
+
         UserEntity userEntity = userRepository.findByUserId(userId);
         double updatedBalance = userEntity.getBalance();
         updatedBalance += depositedMoney;

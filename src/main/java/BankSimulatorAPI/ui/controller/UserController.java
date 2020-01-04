@@ -53,6 +53,14 @@ public class UserController {
         return returnValue;
     }
 
+    @GetMapping(path = "/{userId}")
+    public UserRest getUser(@PathVariable String userId) {
+        UserRest returnValue = new UserRest();
+        UserDto userDto = userService.getUserById(userId);
+        BeanUtils.copyProperties(userDto, returnValue);
+        return returnValue;
+    }
+
     @PostMapping(path = "/login")
     public UserRest loginUser(@RequestBody UserLoginRequestModel userDetails) {
         UserRest returnValue = new UserRest();
@@ -94,8 +102,8 @@ public class UserController {
 
     @PutMapping(path = "/deposit/{userId}")
     public UserRest depositMoney(@RequestBody DepositMoneyRequestModel userDetails, @PathVariable String userId) {
-        if(userDetails.getDepositedMoney() <= 0) {
-            throw new RuntimeException("Wrong amount of deposited money");
+        if(userDetails.getDepositedMoney() <= 0.0) {
+            throw new RuntimeException("Incorrect amount of deposited money");
         }
         UserRest returnValue = new UserRest();
         double depositedMoney = userDetails.getDepositedMoney();
