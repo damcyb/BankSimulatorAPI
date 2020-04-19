@@ -1,16 +1,16 @@
 # BankSimulatorAPI
 Bank Simulator API for mobile device
 
-Main functionalities:
+### Main functionalities:
   responding for requests:
-  -- get list of logged user transfers
-  -- create / login / update / delete user
-  -- deposit / withdraw / transfer money
+  * get list of logged user transfers
+  * create / login / update / delete user
+  * deposit / withdraw / transfer money
 
-Used technologies:
-  -- Spring Boot
-  -- Hibernate
-  -- REST API
-  -- SQL database
+### Used technologies:
+  * Spring Boot
+  * Hibernate
+  * REST API
+  * SQL database
   
    
